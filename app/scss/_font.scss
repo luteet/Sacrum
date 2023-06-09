@@ -1,0 +1,94 @@
+
+@font-face {
+	@include font-include('Inter', 500, swap, normal, 'Inter-Medium');
+}
+
+@font-face {
+	@include font-include('Inter', 600, swap, normal, 'Inter-SemiBold');
+}
+
+@font-face {
+	@include font-include('Inter', 200, swap, normal, 'Inter-ExtraLight');
+}
+
+.main-title {
+	font-family: var(--title-font);
+	font-weight: 600;
+	line-height: 100%;
+
+	i {
+		margin-left: -0.4ch;
+		font-weight: 500;
+	}
+
+	@media (min-width: 360px) {
+		font-size: 4.3125rem;
+	}
+	font-size: 4rem;
+	letter-spacing: -0.07em;
+	i {
+		font-size: 2.8rem;
+		@media (min-width: 360px) {
+			font-size: 3.375rem;
+		}
+		line-height: 103.703704%;
+	}
+
+	@include _768 {
+		font-size: 6.3125rem;
+		i {
+			font-size: 5.75rem;
+			line-height: 103.703704%;
+		}
+	}
+
+	@include _992 {
+		font-weight: 500;
+		font-size: 8rem;
+		letter-spacing: -0.08em;
+	}
+
+	@include _container {
+		font-size: 13.375rem;
+		i {
+			font-size: 11.25rem;
+			line-height: 100%;
+			letter-spacing: -0.08em;
+		}
+	}
+}
+
+.title {
+	
+	font-family: var(--title-font);
+	font-weight: 500;
+	font-size: 2.375rem;
+	line-height: 115.789474%;
+	letter-spacing: -0.07em;
+	color: var(--white-2);
+
+	@include _768 {
+		font-size: 3.5rem;
+	}
+
+	@include _992 {
+		letter-spacing: -0.08em;
+		font-weight: 500;
+		line-height: 107%;
+		font-size: 6.6875rem;
+	}
+
+}
+
+
+
+.section-title {
+
+	font-family: var(--title-font);
+	font-weight: 700;
+
+}
+
+.txt-center {
+	text-align: center;
+}

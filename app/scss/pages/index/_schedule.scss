@@ -1,0 +1,287 @@
+.schedule {
+	z-index: 1;
+	
+	@include _992 {
+		
+		padding-top: 100vh; margin-top: -100vh;	
+	}
+	
+
+	// .schedule__bg
+
+	&__bg {
+		position: fixed;
+		left: 0; top: 0;
+		width: 100%; height: 100%;
+		z-index: -1;
+		user-select: none; pointer-events: none;
+		@include _992 {
+			position: absolute;
+		}
+		//transform: translate(0,-100%);
+
+		&--wrapper {
+			position: absolute;
+			left: 0; top: 0;
+			width: 100%; height: 100vh;
+		}
+
+		&--image {
+			position: absolute;
+			left: 0; top: 0;
+			width: 100%; height: 100vh;
+			overflow: hidden;
+
+			picture {
+				display: block;
+				position: absolute;
+				left: 0; top: 0;
+				width: 100%; height: 100%;
+
+			}
+
+			img {
+				position: absolute;
+				left: 0; top: 0;
+				transform: translate(0,13%);
+				width: 100%; height: 100%;
+				object-fit: cover;
+			}
+		}
+	}
+
+	// .schedule__title
+
+	&__title {
+		position: absolute;
+		width: 100%; height: 100vh;
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		color: #C5C6C1;
+	}
+
+	// .schedule__list
+
+	&__list {
+		display: flex;
+		flex-direction: column;
+
+		padding-top: 100px; padding-bottom: 100px;
+		@include _992 {
+			padding-top: 60%; padding-bottom: 100px;
+		}
+	}
+
+	// .schedule__card
+
+	&__card {
+		max-width: 320px;
+		margin-top: 60px;
+		//transition: filter 0.2s ease;
+
+		&:nth-child(even) {
+			align-self: self-end;
+		}
+
+		&:nth-child(6n + 7), &:nth-child(1) {
+			/* opacity: .3;
+			align-self: center; */
+		}
+
+		&:nth-child(6n + 8), &:nth-child(2) {
+			
+			@include _768 {
+				align-self: self-end;
+				margin-top: -50px;
+			}
+		}
+
+		&:nth-child(6n + 9), &:nth-child(3) {
+			
+			@include _768 {
+				align-self: center;
+				margin-top: 140px;
+			}
+			
+		}
+
+		&:nth-child(6n + 10), &:nth-child(4) {
+			@include _768 {
+				margin-top: 183px;
+				align-self: self-end;
+			}
+			
+			
+		}
+
+		&:nth-child(6n + 11), &:nth-child(5) {
+			@include _768 {
+				margin-top: 64px;
+				align-self: self-start;
+			}
+			
+			
+		}
+
+		&:nth-child(6n + 12), &:nth-child(6) {
+			@include _768 {
+				margin-top: 154px;
+				align-self: center;
+			}
+			
+			
+		}
+	}
+}
+
+.folder-card {
+
+	transition: filter .1s ease;
+
+	&._light & {
+		&__header {
+			svg {
+				fill: var(--white);
+			}
+			color: var(--black-3);
+		}
+
+		&__name {
+			background: var(--white);
+			color: var(--black-3);
+		}
+
+		&__main {
+			background: var(--white);
+			color: var(--black-3);
+
+			p {
+				font-weight: 500;
+				font-size: 0.75rem;
+				line-height: 114%;
+				letter-spacing: -0.04em;
+				color: var(--black-3);
+			}
+
+			a {
+				display: block;
+				margin-top: 19px;
+
+				font-weight: 600;
+				font-size: 1.25rem;
+				line-height: 110%;
+				letter-spacing: -0.05em;
+
+				color: var(--accent);
+
+				transition: color .2s ease;
+				&:hover {
+					color: var(--accent-hover);
+				}
+				
+				&:active {
+					color: var(--accent-hover);
+				}
+
+			}
+		}
+
+		
+	}
+
+	// .folder-card__header
+
+	&__header {
+		padding-left: 10px;
+		& svg {
+			flex: 0 0 45px;
+			width: 45px; height: 38px;
+			fill: var(--accent);
+			transform: translate(0,17px);
+		}
+
+		display: flex;
+		align-items: flex-end;
+		justify-content: flex-end;
+	}
+
+	// .folder-card__name
+
+	&__name {
+		display: flex;
+		align-items: center;
+		background: var(--accent);
+		color: var(--white);
+
+		padding: 6px 25px 2px 10px;
+		margin-bottom: -2px;
+		border-radius: 0 10px 0 0;
+		height: 23px;
+
+		font-weight: 600;
+		font-size: 0.75rem;
+		line-height: 115%;
+		letter-spacing: -0.04em;
+		text-transform: uppercase;
+		color: var(--white-2);
+	}
+
+	&__main {
+		background: var(--accent);
+		border-radius: 10px 0 10px 10px;
+
+		padding: 30px;
+		color: var(--white-2);
+
+		span, time {
+			font-weight: 600;
+			font-size: 0.75rem;
+			line-height: 141.666667%;
+			letter-spacing: -0.04em;
+			text-transform: uppercase;
+		}
+
+		h3 {
+			margin-top: 10px;
+			font-weight: 600;
+			font-size: 1.25rem;
+			line-height: 110%;
+			letter-spacing: -0.05em;
+		}
+	}
+
+	// .folder-card__text
+
+	&__text {
+		
+	}
+
+	// .folder-card__footer
+
+	&__footer {
+		margin-top: 26px;
+
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+
+		> * {
+			align-self: center;
+		}
+	}
+
+	// .folder-card__btn
+
+	&__btn {
+		justify-self: self-start;
+		margin-right: 10px;
+	}
+
+	// .folder-card__seats
+
+	&__seats {
+		justify-self: center;
+	}
+}
