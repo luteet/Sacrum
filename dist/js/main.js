@@ -294,7 +294,10 @@ body.addEventListener('click', function (event) {
 					ScrollTrigger.enable();
 				},500) */
 			} else {
-				body.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+				window.scrollTo({
+					left:0, top: 0, behavior: "smooth"
+				})
+				ScrollTrigger.refresh( true ) ;
 			}
 		}
 	
