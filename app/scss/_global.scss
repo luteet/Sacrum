@@ -50,10 +50,10 @@ body {
 
 @keyframes fadeOut {
 	from {
-		opacity: 1; visibility: visible;
+		clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
 	}
 	to {
-		opacity: 0; visibility: hidden;
+		clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
 	}
 }
 
@@ -89,7 +89,7 @@ body {
 	}
 
 	&._loaded {
-		animation: fadeOut 0.4s ease 0.2s 1 normal forwards;
+		animation: fadeOut 0.6s ease 0.2s 1 normal forwards;
 	}
 }
 

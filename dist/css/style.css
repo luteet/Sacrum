@@ -757,25 +757,25 @@ body {
 
 @-webkit-keyframes fadeOut {
     from {
-        opacity: 1;
-        visibility: visible
+        -webkit-clip-path: polygon(0 0,100% 0,100% 100%,0 100%);
+        clip-path: polygon(0 0,100% 0,100% 100%,0 100%)
     }
 
     to {
-        opacity: 0;
-        visibility: hidden
+        -webkit-clip-path: polygon(0 0,100% 0,100% 0,0 0);
+        clip-path: polygon(0 0,100% 0,100% 0,0 0)
     }
 }
 
 @keyframes fadeOut {
     from {
-        opacity: 1;
-        visibility: visible
+        -webkit-clip-path: polygon(0 0,100% 0,100% 100%,0 100%);
+        clip-path: polygon(0 0,100% 0,100% 100%,0 100%)
     }
 
     to {
-        opacity: 0;
-        visibility: hidden
+        -webkit-clip-path: polygon(0 0,100% 0,100% 0,0 0);
+        clip-path: polygon(0 0,100% 0,100% 0,0 0)
     }
 }
 
@@ -823,8 +823,8 @@ body {
 }
 
 .preloader._loaded {
-    -webkit-animation: fadeOut .4s ease .2s 1 normal forwards;
-    animation: fadeOut .4s ease .2s 1 normal forwards
+    -webkit-animation: fadeOut .6s ease .2s 1 normal forwards;
+    animation: fadeOut .6s ease .2s 1 normal forwards
 }
 
 section {
