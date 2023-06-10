@@ -583,5 +583,8 @@ window.addEventListener('load', function (event) {
 	setTimeout(() => {
 		preloader.classList.remove('_loading');
 		preloader.classList.add('_loaded');
+		setTimeout(() => {
+			preloader.remove();
+		},1500)
 	},1000)
 })
