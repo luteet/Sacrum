@@ -34,6 +34,11 @@
 </head>
 
 <body>
+	<div class="preloader">
+		<div class="preloader__logo">
+			<span>Sacrum</span>
+		</div>
+	</div>
 	<div class="wrapper smooth-wrapper" id="smooth-wrapper">
 		<div class="wrapper-content smooth-content" id="smooth-content">
 			<header class="header container">
@@ -56,12 +61,12 @@
 					<div class="header__nav--body">
 						<ul class="header__nav--list">
 							<li>
-								<a href="#">
+								<a href="#schedule">
 									Расписание
 								</a>
 							</li>
 							<li>
-								<a href="#">
+								<a href="#faq">
 									Вопросы
 								</a>
 							</li>
@@ -78,7 +83,7 @@
 										</a>
 									</li>
 									<li>
-										<a href="#" disabled>
+										<a href="#" class="disabled">
 											Shop
 											(Soon)
 										</a>
@@ -88,25 +93,14 @@
 						</div>
 					</div>
 				</nav>
-				<div class="header__lang">
-					<button class="header__lang--target" type="button" aria-label="UA">
-						<svg width="18" height="18" viewBox="0 0 18 18">
-							<use xlink:href="img/sprites.svg#lang"></use>
-						</svg>
-						<span>UA</span>
-					</button>
-					<ul class="header__lang--list">
-						<li>
-							<a href="#">
-								RU
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								EN
-							</a>
-						</li>
-					</ul>
+				<div class="header__lang" data-lang-1="index.html" data-lang-2="index.html">
+					<div class="header__lang--param">
+						UA
+					</div>
+					<button type="button" class="header__lang--switch"></button>
+					<div class="header__lang--param">
+						RU
+					</div>
 				</div>
 			</header>
 
@@ -126,13 +120,13 @@
 								<p>это коммьюнити людей,</p>
 								<p>объединенных единым порывом глубокого изучения себя и мира</p>
 							</div>
-							<a href="#" class="hero__content--btn btn">
+							<a href="#schedule" class="hero__content--btn btn scroll-btn">
 								Записаться
 							</a>
 						</div>
 					</div>
 				</section>
-				<section class="schedule container" id="schedule">
+				<section class="schedule container">
 					<div class="schedule__bg">
 						<div class="noise-decor" style="background-image: url(img/noise.webp);"></div>
 						<div class="schedule__bg--wrapper">
@@ -148,7 +142,7 @@
 							</div>
 						</div>
 					</div>
-					<ul class="schedule__list">
+					<ul class="schedule__list" id="schedule">
 						<li class="schedule__card folder-card anim-folder-card">
 							<div class="folder-card__header">
 								<svg width="0" height="0" xmlns="http://www.w3.org/2000/svg" version="1.0" viewBox="0 0 180 152">
@@ -298,7 +292,7 @@
 						</a>
 					</div>
 				</section>
-				<section class="faq container primary-bg">
+				<section class="faq container primary-bg" id="faq">
 					<h2 class="faq__section-name">
 						/ Пространство вопросов и ответов
 					</h2>
@@ -429,10 +423,14 @@
 												<input type="radio" name="date" value="2023-06-14 12:00">
 												<span>14 июня / 12:00</span>
 											</label>
+										</li>
+										<li>
 											<label>
 												<input type="radio" name="date" value="2023-06-21 12:00">
 												<span>21 июня / 12:00</span>
 											</label>
+										</li>
+										<li>
 											<label>
 												<input type="radio" name="date" value="2023-06-28 12:00">
 												<span>28 июня / 12:00</span>
@@ -449,7 +447,7 @@
 									</ul>
 								</div>
 								<div class="application-popup__submit-container">
-									<button class="btn" type="submit">
+									<button class="btn" type="button">
 										Записаться
 									</button>
 									<span class="application-popup__seats">40 мест</span>
@@ -562,7 +560,7 @@
 	</div>
 
 	<script src="js/libs.min.js"></script>
-	<script src="js/main.min.js"></script>
+	<script src="js/main.js"></script>
 
 </body>
 

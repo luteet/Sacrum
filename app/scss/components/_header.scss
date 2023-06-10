@@ -18,7 +18,7 @@
 
 	@include _992 {
 		padding-top: 26px; padding-bottom: 0;
-		grid-template-columns: 50px 1fr 2fr 1fr 50px;
+		grid-template-columns: 80px 1fr 2fr 1fr 80px;
 	}
 
 	> * {
@@ -371,6 +371,54 @@
 		letter-spacing: -0.04em;
 		text-transform: uppercase;
 		color: var(--black-3);
+
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+
+		&._active &--switch {
+			&::before {
+				left: 100%; transform: translate(-100%,-50%);
+			}
+		}
+
+		&--param {
+			color: var(--black-3-2);
+			transition: color .15s ease;
+			&:first-child {
+				color: var(--black-3);
+			}
+		}
+
+		&._active &--param {
+			&:first-child {
+				color: var(--black-3-2);
+			}
+			&:last-child {
+				color: var(--black-3);
+			}
+		}
+
+		&--switch {
+			position: relative;
+			flex: 0 0 33px;
+			width: 33px; height: 16px;
+			border-radius: 100px;
+			border: 1px solid var(--black-3-2);
+			&::before {
+				content: '';
+				display: inline-block;
+				width: 16px; height: 16px;
+				position: absolute;
+				top: 50%;
+				left: 0; transform: translate(0,-50%);
+				background: var(--black-3);
+				border-radius: 50%;
+				transition: left .15s ease, transform .15s ease;
+			}
+			background: transparent;
+			margin: 0 5px;
+		}
 
 		&--target {
 			svg {

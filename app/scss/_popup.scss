@@ -101,6 +101,8 @@
 	&__body {
 		&--main {
 			position: relative;
+			display: flex;
+			flex-direction: column;
 		}
 	}
 
@@ -184,6 +186,7 @@
 
 		label {
 			cursor: pointer;
+			display: block;
 			input {
 				position: absolute;
 				width: 1px; height: 1px;
@@ -435,21 +438,49 @@
 		width: 100%; height: 100%;
 		background: var(--white-2);
 		border-radius: 10px;
+		transition: opacity .3s ease, visibility .3s ease;
+		opacity: 0; visibility: hidden;
+		&._active {
+			opacity: 1; visibility: visible;
+		}
 		@include _992 {
 			position: static;
 			width: auto; height: auto;
 			background: transparent;
+			opacity: 1; visibility: visible;
+
+			display: grid;
+			grid-template-rows: 0fr;
+
+			transition: grid-template-rows .3s ease;
+			&._active {
+				grid-template-rows: 1fr;
+			}
+
+			
 		}
+
+		&._active &--wrapper {
+			@include _550 {
+				padding: 22px 40px;
+				margin-top: 10px;
+			}
+			
+		}
+
+		
 		&--wrapper {
 			margin-top: 10px;
 			padding: 22px 16px;
 			background: var(--white-2);
 			border-radius: 10px;
-
+			overflow: hidden;
 			display: grid;
 			@include _550 {
 				grid-template-columns: 1fr 1fr;
-				padding: 22px 40px;
+				padding: 0 40px;
+				margin-top: 0;
+				transition: margin .3s ease, padding .3s ease;
 			}
 			@media (min-width: 1100px) {
 				grid-template-columns: 1fr 1fr 1fr 150px;
@@ -506,27 +537,47 @@
 	&__message {
 
 		order: 1;
+		padding: 16px 16px 30px 16px;
+		background: var(--white-2);
+		margin-top: 10px; margin-bottom: -10px;
+		border-radius: 10px 10px 0 0;
+		@include _768 {
+			padding: 0;
+			margin-bottom: 0; margin-top: 0;
+			background: transparent;
+			border-radius: 0;
+		}
 
 		&--wrapper {
-			margin-top: 10px;
-			padding: 22px 40px;
-			background: var(--white-2);
+			
+			padding: 25px 30px;
+			background: #E3E4DC;
 			border-radius: 10px;
 
-			display: grid;
-			grid-template-columns: 45% auto;
+			@include _768 {
+				display: grid;
+				grid-template-columns: 45% auto;
+				margin-top: 10px;
+				padding: 22px 40px;
+				background: var(--white-2);
+			}
 		}
 
 		// .application-popup__message--title
 
 		&--title {
 			font-weight: 600;
-			font-size: 1.25rem;
+			font-size: 1.125rem;
 			line-height: 110%;
 			letter-spacing: -0.05em;
 
 			display: flex;
 			align-items: center;
+			justify-content: center;
+			@include _768 {
+				font-size: 1.25rem;
+				justify-content: stretch;
+			}
 
 			padding-right: 10px;
 		}
@@ -551,9 +602,13 @@
 		// .application-popup__message--text
 
 		&--text {
-			max-width: 387px;
+			margin-top: 20px;
+			@include _768 {
+				max-width: 387px;
+				margin-top: 0;
+			}
 			font-weight: 500;
-			font-size: 14px;
+			font-size: 0.875rem;
 			line-height: 121.428571%;
 			letter-spacing: -0.04em;
 
