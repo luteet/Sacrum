@@ -1,9 +1,10 @@
 .schedule {
-    z-index: 1
+    z-index: 1;
+    position: static
 }
 
 .schedule__bg {
-    position: fixed;
+    position: absolute;
     left: 0;
     top: 0;
     width: 100%;
@@ -20,7 +21,7 @@
     left: 0;
     top: 0;
     width: 100%;
-    height: 100vh
+    height: calc(var(--screen-height) + 100px)
 }
 
 .schedule__bg--image {
@@ -126,6 +127,7 @@
     width: 45px;
     height: 38px;
     fill: var(--accent);
+    margin-right: -1px;
     -webkit-transform: translate(0,17px);
     transform: translate(0,17px)
 }
@@ -459,11 +461,18 @@
 @media (min-width:992px) {
     .schedule {
         padding-top: 100vh;
-        margin-top: -100vh
+        margin-top: -100vh;
+        position: relative
     }
 
     .schedule__bg {
-        position: absolute
+        position: absolute;
+        -webkit-transform: none;
+        transform: none
+    }
+
+    .schedule__bg--image,.schedule__bg--wrapper {
+        height: 100vh
     }
 
     .schedule__list {
@@ -520,10 +529,6 @@ aside,details,footer,header,main,nav {
 
 .popup-wrapper,body {
     flex-direction: column
-}
-
-.btn._disabled,.hero__bg,.noise-decor {
-    pointer-events: none
 }
 
 hr {
@@ -841,7 +846,8 @@ section {
 }
 
 .main {
-    flex: 1 0 auto
+    flex: 1 0 auto;
+    z-index: 2
 }
 
 .btn,.popup {
@@ -892,7 +898,8 @@ section {
 }
 
 .btn._disabled {
-    opacity: .3
+    opacity: .3;
+    pointer-events: none
 }
 
 .btn._light {
@@ -932,7 +939,8 @@ section {
 
 .noise-decor {
     position: absolute;
-    background: 0 0/700px;
+    background: 0 0/400px;
+    pointer-events: none;
     opacity: .05;
     z-index: 2
 }
@@ -1844,6 +1852,7 @@ input:focus::placeholder,textarea:focus::placeholder {
     -webkit-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    pointer-events: none;
     z-index: -1;
     overflow: hidden;
     display: flex;
@@ -1949,6 +1958,10 @@ input:focus::placeholder,textarea:focus::placeholder {
 @media (min-width:768px) {
     .application-popup__grid,.application-popup__grid-cell._full {
         grid-template-columns: repeat(4,1fr)
+    }
+
+    .noise-decor {
+        background: 0 0/700px
     }
 
     .main-title {

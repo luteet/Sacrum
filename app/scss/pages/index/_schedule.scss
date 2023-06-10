@@ -1,35 +1,47 @@
 .schedule {
 	z-index: 1;
 	
+	position: static;
 	@include _992 {
 		
 		padding-top: 100vh; margin-top: -100vh;	
+		position: relative;
 	}
+
+	//padding-top: 100svh; margin-top: -100svh;	
 	
 
 	// .schedule__bg
 
 	&__bg {
-		position: fixed;
+		position: absolute;
 		left: 0; top: 0;
 		width: 100%; height: 100%;
 		z-index: -1;
 		user-select: none; pointer-events: none;
+		//transform: translate(0,-100svh);
 		@include _992 {
 			position: absolute;
+			transform: none;
 		}
 		//transform: translate(0,-100%);
 
 		&--wrapper {
 			position: absolute;
 			left: 0; top: 0;
-			width: 100%; height: 100vh;
+			width: 100%; height: calc(var(--screen-height) + 100px);
+			@include _992 {
+				height: 100vh;
+			}
 		}
 
 		&--image {
 			position: absolute;
 			left: 0; top: 0;
-			width: 100%; height: 100vh;
+			width: 100%; height: calc(var(--screen-height) + 100px);
+			@include _992 {
+				height: 100vh;
+			}
 			overflow: hidden;
 
 			picture {
@@ -152,6 +164,7 @@
 		&__name {
 			background: var(--white);
 			color: var(--black-3);
+			
 		}
 
 		&__main {
@@ -200,6 +213,7 @@
 			flex: 0 0 45px;
 			width: 45px; height: 38px;
 			fill: var(--accent);
+			margin-right: -1px;
 			transform: translate(0,17px);
 		}
 

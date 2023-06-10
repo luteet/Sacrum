@@ -55,16 +55,6 @@ let mm = gsap.matchMedia();
 
 let smoother;
 
-mm.add("(min-width: 992px)", () => {
-
-	ScrollTrigger.normalizeScroll(true);
-	smoother = ScrollSmoother.create({
-		smooth: 1.5,
-		effects: true,
-	});
-
-});
-
 
 mm.add("(min-width: 992px)", () => {
 
@@ -127,7 +117,30 @@ mm.add("(min-width: 992px)", () => {
 
 });
 
+mm.add("(max-width: 992px)", () => {
+	/* gsap.from('.main', {
+		scrollTrigger: {
+		  trigger: '.schedule__bg',
+		  pin: true,
+		  //scrub: true,
+		  //pin: true,
+		  start: "-20% top",
+		},
+	}); */
+	ScrollTrigger.create({
+		trigger: '.schedule__bg',
+		start: "top top",
+		//end: "bottom 150%",
+		pin: true,
+	})
+})
 
+/* ScrollTrigger.create({
+	trigger: '.schedule__bg',
+	start: "top top",
+	//end: "+= " + do,
+	pin: true,
+}) */
 
 /* gsap.from('.schedule__bg', {
 	scrollTrigger: {
@@ -184,11 +197,17 @@ function resizeCheckFunc(size, minWidth, maxWidth) {
 	}
 }
 
+//document.querySelector('.message').style.opacity = 1;
+
 function resize() {
 
 	html.style.setProperty("--height-header", header.offsetHeight + "px");
+	html.style.setProperty("--screen-height", body.offsetHeight + "px");
+	
 	if(windowSize != window.innerWidth) {
 		html.style.setProperty("--svh", window.innerHeight * 0.01 + "px");
+		//document.querySelector('.message').textContent = window.innerHeight;
+		
 	}
 	html.style.setProperty("--vh", window.innerHeight * 0.01 + "px");
 	
@@ -258,13 +277,22 @@ body.addEventListener('click', function (event) {
 			smoother.scrollTo(section, true);
 		} else {
 			section = document.querySelector(headerLink.getAttribute('href'))
+
+			//ScrollTrigger.disable();
 	
 			menu.forEach(elem => {
 				elem.classList.remove('_mob-menu-active')
 			})
 		
 			if(section) {
-				section.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+				//section.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+				window.scrollTo({
+					left:0, top: section.offsetTop, behavior: "smooth"
+				})
+				ScrollTrigger.refresh( true ) ;
+				/* setTimeout(() => {
+					ScrollTrigger.enable();
+				},500) */
 			} else {
 				body.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
 			}
@@ -382,21 +410,7 @@ body.addEventListener('click', function (event) {
 
 
 
-const heroBg = document.querySelector('.hero__bg');
-if(heroBg) {
-	const heroBgVideo = heroBg.querySelector('.hero__bg--video');
 
-	if(heroBgVideo) {
-		heroBgVideo.load();
-		heroBgVideo.addEventListener('loadeddata', function (event) {
-			setTimeout(() => {
-				heroBgVideo.autoplay = true;
-				heroBgVideo.play();
-				heroBg.classList.add('_loaded');
-			},0)
-		})
-	}
-}
 
 
 // =-=-=-=-=-=-=-=-=-=-=-=- <slider> -=-=-=-=-=-=-=-=-=-=-=-=
@@ -572,17 +586,42 @@ popup.init()
 
 
 const preloader = document.querySelector('.preloader');
+const heroBg = document.querySelector('.hero__bg');
 
 document.addEventListener("DOMContentLoaded", function (event) {
 	setTimeout(() => {
+		
+		if(heroBg) {
+			const heroBgVideo = heroBg.querySelector('.hero__bg--video');
+
+			if(heroBgVideo) {
+				heroBgVideo.load();
+				/* heroBgVideo.addEventListener('loadeddata', function (event) {
+					
+				}) */
+			}
+		}
 		preloader.classList.add('_loading');
 	},200)
 })
 
 window.addEventListener('load', function (event) {
 	setTimeout(() => {
+		if(heroBg) {
+			const heroBgVideo = heroBg.querySelector('.hero__bg--video');
+
+			if(heroBgVideo) {
+				heroBgVideo.autoplay = true;
+				heroBgVideo.play();
+				heroBg.classList.add('_loaded');
+			}
+		}
+		
+	},0)
+	setTimeout(() => {
 		preloader.classList.remove('_loading');
 		preloader.classList.add('_loaded');
+
 		setTimeout(() => {
 			preloader.remove();
 		},1500)
