@@ -366,6 +366,10 @@ body.addEventListener('click', function (event) {
 		const form = headerSubmitBtn.closest('.popup').querySelector('.application-popup__form');
 		form.classList.toggle('_active');
 		headerSubmitBtn.classList.toggle('_disabled');
+
+		headerSubmitBtn.closest('.popup').querySelector('.popup-body').scrollTo({
+			left: 0, top: 0, behavior: "smooth"
+		});
 	
 	}
 	

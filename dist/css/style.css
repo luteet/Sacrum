@@ -522,6 +522,10 @@ aside,details,footer,header,main,nav {
     flex-direction: column
 }
 
+.btn._disabled,.hero__bg,.noise-decor {
+    pointer-events: none
+}
+
 hr {
     box-sizing: content-box;
     height: 0
@@ -615,6 +619,11 @@ textarea {
 
 [type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button {
     height: auto
+}
+
+.preloader,body,html {
+    width: 100%;
+    height: 100%
 }
 
 [type=search] {
@@ -733,8 +742,6 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 body,html {
-    height: 100%;
-    width: 100%;
     line-height: 1;
     -ms-text-size-adjust: 100%;
     -moz-text-size-adjust: 100%;
@@ -749,10 +756,6 @@ body {
     line-height: 150%;
     display: flex;
     color: var(--black-3)
-}
-
-.btn,.preloader {
-    align-items: center
 }
 
 @-webkit-keyframes fadeOut {
@@ -783,11 +786,10 @@ body {
     position: fixed;
     left: 0;
     top: 0;
-    width: 100%;
-    height: 100%;
     background: var(--black-3);
     z-index: 6;
     display: flex;
+    align-items: center;
     justify-content: center
 }
 
@@ -842,6 +844,10 @@ section {
     flex: 1 0 auto
 }
 
+.btn,.popup {
+    align-items: center
+}
+
 .container {
     padding-left: var(--container-padding);
     padding-right: var(--container-padding)
@@ -864,8 +870,7 @@ section {
 }
 
 .main-title,.title {
-    letter-spacing: -.07em;
-    font-family: var(--title-font)
+    letter-spacing: -.07em
 }
 
 .application-popup__message--text a,.btn._light {
@@ -887,8 +892,7 @@ section {
 }
 
 .btn._disabled {
-    opacity: .3;
-    pointer-events: none
+    opacity: .3
 }
 
 .btn._light {
@@ -929,7 +933,6 @@ section {
 .noise-decor {
     position: absolute;
     background: 0 0/700px;
-    pointer-events: none;
     opacity: .05;
     z-index: 2
 }
@@ -951,6 +954,7 @@ section {
 }
 
 .main-title {
+    font-family: var(--title-font);
     font-weight: 600;
     line-height: 100%;
     font-size: 4rem
@@ -964,6 +968,7 @@ section {
 }
 
 .title {
+    font-family: var(--title-font);
     font-weight: 500;
     font-size: 2.375rem;
     line-height: 115.789474%;
@@ -1021,7 +1026,6 @@ input:focus::placeholder,textarea:focus::placeholder {
 .popup {
     position: fixed;
     display: flex;
-    align-items: center;
     padding: 20px 0 0;
     z-index: 100;
     opacity: 0;
@@ -1058,7 +1062,7 @@ input:focus::placeholder,textarea:focus::placeholder {
     margin: auto auto 0;
     position: relative;
     overflow-y: auto;
-    max-height: calc(100vh - 30px);
+    max-height: calc(var(--svh,1vh) *100 - 30px);
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -1094,8 +1098,8 @@ input:focus::placeholder,textarea:focus::placeholder {
     order: 3;
     display: grid;
     padding: 20px 16px;
-    background: var(--white-2);
-    border-radius: 10px
+    border-radius: 10px 10px 0 0;
+    background: var(--white-2)
 }
 
 .application-popup__col:first-child {
@@ -1840,7 +1844,6 @@ input:focus::placeholder,textarea:focus::placeholder {
     -webkit-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    pointer-events: none;
     z-index: -1;
     overflow: hidden;
     display: flex;
@@ -2060,7 +2063,8 @@ input:focus::placeholder,textarea:focus::placeholder {
     }
 
     .application-popup__content {
-        padding: 40px
+        padding: 40px;
+        border-radius: 10px
     }
 
     .application-popup__grid {
