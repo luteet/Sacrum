@@ -19,7 +19,7 @@
 
 	</style>
 	<link rel="stylesheet" href="css/style-critical.min.css">
-	<link rel="stylesheet" href="css/style.min.css" id="lazy-styles" media="print">
+	<link rel="stylesheet" href="css/style.min.css" id="lazy-styles" media="all">
 	<script>
 		document.querySelector('html').style.setProperty("--vh", window.innerHeight * 0.01 + "px");
 		document.addEventListener('DOMContentLoaded', function (event) {
@@ -58,13 +58,13 @@
 					<div class="header__nav--body">
 						<ul class="header__nav--list">
 							<li>
-								<a href="#schedule">
-									Расписание
+								<a href="#schedule" aria-label="Расписание">
+									<span>Расписание</span>
 								</a>
 							</li>
 							<li>
-								<a href="#faq">
-									Вопросы
+								<a href="#faq" aria-label="Вопросы">
+									<span>Вопросы</span>
 								</a>
 							</li>
 						</ul>
@@ -75,14 +75,13 @@
 								</span>
 								<ul class="header__add-nav--list">
 									<li>
-										<a href="#">
-											Retrit
+										<a href="#" aria-label="Retrit">
+											<span>Retrit</span>
 										</a>
 									</li>
 									<li>
-										<a href="#" class="disabled">
-											Shop
-											(Soon)	
+										<a href="#" data-disabled="1" aria-label="Shop (Soon)">
+											<span>Shop (Soon)</span>
 										</a>
 									</li>
 								</ul>

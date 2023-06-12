@@ -60,6 +60,7 @@
 	&__item {
 
 		color: var(--white-2);
+		cursor: pointer;
 
 		padding: 26px 0;
 		@include _992 {
@@ -75,6 +76,7 @@
 
 		&--question {
 			display: flex;
+			
 
 			@include _768 {
 				align-items: center;
@@ -161,14 +163,16 @@
 				transform: translate(-50%,-50%) rotate(90deg);
 			}
 
-			&._active {
-				background: var(--white-2);
-				&::after {
-					background: var(--black-3);
-				}
-				&::before {
-					opacity: 0;
-				}
+			
+		}
+
+		&._active &--btn {
+			background: var(--white-2);
+			&::after {
+				background: var(--black-3);
+			}
+			&::before {
+				opacity: 0;
 			}
 		}
 
@@ -202,6 +206,8 @@
 		display: flex;
 		justify-content: center;
 		margin-top: 20px;
+		max-width: 343px;
+		justify-self: center;
 
 		@include _768 {
 			grid-column: 1;
@@ -212,6 +218,17 @@
 
 		&--folder {
 			max-width: 400px;
+
+			p {
+				&:not(:first-child) {
+					padding-top: 20px;
+				}
+				@include _768 {
+					&:not(:first-child) {
+						padding-top: 0;
+					}
+				}
+			}
 		}
 	}
 }

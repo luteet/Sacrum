@@ -24,7 +24,7 @@
 									<ul>
 										<li>
 											<label>
-												<input type="radio" name="date" value="2023-06-14 12:00">
+												<input type="radio" name="date" value="2023-06-14 12:00" checked>
 												<span>14 июня / 12:00</span>
 											</label>
 										</li>
@@ -126,14 +126,16 @@
 					<form method="post" class="application-popup__form">
 						<div class="application-popup__form--wrapper">
 							<label>
-								<span>ФИО</span>
 								<input type="text" name="your-name" placeholder="Имя" required>
+								<span>ФИО</span>
 							</label>
 							<label>
 								<input type="email" name="email" placeholder="Электронная почта" required>
+								<span>Электронная почта</span>
 							</label>
 							<label>
 								<input type="tel" name="phone" placeholder="Номер телефона" required>
+								<span>Номер телефона</span>
 							</label>
 							<button class="btn" type="submit">
 								Отправить

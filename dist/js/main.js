@@ -46,6 +46,7 @@ const getDeviceType = () => {
 
 
 
+
 // =-=-=-=-=-=-=-=-=-=-=-=- <animation> -=-=-=-=-=-=-=-=-=-=-=-=
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
@@ -54,7 +55,11 @@ gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 let mm = gsap.matchMedia();
 
 let smoother;
-
+function randomInteger(min, max) {
+	// получить случайное число от (min-0.5) до (max+0.5)
+	let rand = min - 0.5 + Math.random() * (max - min + 1);
+	return rand;
+  }
 
 mm.add("(min-width: 992px)", () => {
 
@@ -65,12 +70,14 @@ mm.add("(min-width: 992px)", () => {
 		effects: true,
 	});
 
+	
+
 	/* smoother.wrapper(".smooth-wrapper")
 	smoother.wrapper(".smooth-content") */
 
 	const folderCards = document.querySelectorAll('.anim-folder-card');
 	folderCards.forEach(folderCard => {
-		gsap.set(folderCard, { filter: "blur(10px)", });
+		/* gsap.set(folderCard, { filter: "blur(10px)", });
 		gsap.to(folderCard, {
 			scrollTrigger: {
 			  trigger: folderCard,
@@ -80,59 +87,205 @@ mm.add("(min-width: 992px)", () => {
 			},
 			filter: "blur(0px)",
 			//duration: 1, ease: "circ.out",
-		});
+		}); */
+
+		smoother.effects(folderCard, {speed: randomInteger(1.1, 1.3)});
 	})
+
+	//console.log(randomInteger(1, 1.7))
+
+	//smoother.effects(folderCards[0], {speed: randomInteger(0.5, 2.5), lag: 0.3});
 
 	/* gsap.from('.schedule__bg', {
 		scrollTrigger: {
-		  trigger: '.hero',
+		  trigger: '.schedule',
 		  pin: true,
-		  //scrub: true,
+		  scrub: true,
 		  start: "top top",
 		  end: "bottom bottom",
 		  //pinSpacing: true,
 		},
-		y: "100%",
+		//y: "100%",
 	}) */
 
-	gsap.from('.schedule__bg--image, .schedule__bg .noise-decor', {
+	/* gsap.from('.schedule__bg--image, .schedule__bg .noise-decor', {
 		scrollTrigger: {
 		  trigger: '.schedule__bg--wrapper',
 		  scrub: true,
-		  //pin: true,
+		  pin: true,
 		  start: "top bottom",
 		  end: "bottom -20%",
+		  ignoreMobileResize: true
 		},
 		y: "400px",
 		duration: 2,
 		//duration: 1, ease: "circ.out",
-	});
+	}); */
 
-	ScrollTrigger.create({
+	/* ScrollTrigger.create({
 		trigger: '.schedule__bg',
 		start: "top top",
-		//end: "+= " + do,
+		end: "bottom bottom",
+		pin: true,
+	}) */
+
+	gsap.from('.schedule__bg--wrapper', {
+		scrollTrigger: {
+		  trigger: '.schedule__bg',
+
+		  //scub: true,
+		  //markers: true,
+		  start: "top top",
+		  //end: `${document.querySelector('.schedule__bg').offsetHeight - 100}px`,
+		  pin: true,
+		  //pin: true,
+		  //start: "-20% top",
+		},
+		/* bottom: `${document.querySelector('.schedule__bg').offsetHeight - window.innerHeight}px`,
+		duration: 2 */
+		//bottom: `${document.querySelector('.schedule__bg').offsetHeight - document.querySelector('.schedule__bg--wrapper').offsetHeight - 50}px`,
+	});
+
+	/* const sections = document.querySelectorAll('section');
+	
+	sections.forEach(section => {
+		
+	}) */
+	ScrollTrigger.create({
+		trigger: '.sections-wrapper__container',
+		//start: "50% top",
+		start: "top top",
+		end: `${window.innerHeight} top`,
 		pin: true,
 	})
 
 });
 
 mm.add("(max-width: 992px)", () => {
-	/* gsap.from('.main', {
-		scrollTrigger: {
-		  trigger: '.schedule__bg',
-		  pin: true,
-		  //scrub: true,
-		  //pin: true,
-		  start: "-20% top",
-		},
+	/* ScrollTrigger.normalizeScroll({
+		allowNestedScroll: true,
+		type: "touch,wheel,pointer",
+	});
+	// create the smooth scroller FIRST!
+	smoother = ScrollSmoother.create({
+		smooth: 4,
+		//effects: true,
 	}); */
-	ScrollTrigger.create({
-		trigger: '.schedule__bg',
+	document.querySelector('.schedule__bg').offsetHeight = `${document.querySelector('.schedule__bg').offsetHeight}px`;
+	gsap.from('.schedule__bg--wrapper', {
+		scrollTrigger: {
+		  trigger: '.schedule__bg--wrapper',
+
+		  //scub: true,
+
+		  start: "top top",
+		  end: `${document.querySelector('.schedule__bg').offsetHeight}px 0vh`,
+		  pin: true,
+		  //markers: true,
+		  //pin: true,
+		  //start: "-20% top",
+		},
+		//bottom: `${document.querySelector('.schedule__bg').offsetHeight - window.innerHeight}px`,
+		//duration: 2
+		//bottom: `${document.querySelector('.schedule__bg').offsetHeight - document.querySelector('.schedule__bg--wrapper').offsetHeight - 50}px`,
+	});
+
+	/* ScrollTrigger.normalizeScroll({
+		allowNestedScroll: true, 
+		lockAxis: false,
+		momentum: 2, // dynamically control the duration of the momentum when flick-scrolling
+		type: "touch,wheel,pointer", // now the page will be drag-scrollable on desktop because "pointer" is in the list 
+	}); */
+
+	//ScrollTrigger.config({ignoreMobileResize: true})
+	/* gsap.fromTo('.schedule__bg--wrapper', {
+		scrollTrigger: {
+			trigger: '.schedule__bg--wrapper',
+			scub: true,	
+			markers: true,
+		},
+		y: 0,
+	}, {
+		y: `${document.querySelector('.schedule__bg').offsetHeight - document.querySelector('.schedule__bg--wrapper').offsetHeight - 50}px`,
+	}) */
+	
+	/* ScrollTrigger.create({
+		trigger: '.schedule__bg--wrapper',
 		start: "top top",
-		//end: "bottom 150%",
+		end: `${document.querySelector('.schedule__bg').offsetHeight}px`,
+		markers: true,
+
+		//end: '100% bottom',
+		//end: `${document.querySelector('.schedule__bg').offsetHeight + window.innerHeight}px`,
 		pin: true,
+		//pinReparent: ".main"
+		
+	}) */
+
+	/* setTimeout(() => {
+		const heightScreen = window.innerHeight;
+		//document.querySelector('.schedule__bg').style.height = document.querySelector('.schedule__bg').offsetHeight + 'px';
+		ScrollTrigger.create({
+			trigger: '.schedule__bg',
+			//start: () => document.querySelector('.schedule__bg').offsetHeight < window.innerHeight ? "top top" : "bottom bottom",
+			pinSpacing: false,
+			//start: `top ${window.innerHeight / 2}px`,
+			//endTrigger: '.sections__wrapper',
+			//end: `bottom ${window.innerHeight}px`,
+			//end: `bottom ${window.innerHeight}px`,
+			//end: `${document.querySelector('.schedule').offsetHeight}px ${heightScreen}px`,
+			//end: `+=${document.querySelector('.schedule').offsetHeight - window.innerHeight}`,
+			markers: true,
+			pin: true,
+		})
+	},200) */
+
+	/* gsap.to(".test:not(:last-child)", {
+		yPercent: -100, 
+		ease: "none",
+		stagger: 0.5,
+		scrollTrigger: {
+		  trigger: ".main",
+		  start: "top top",
+		  end: "+=300%",
+		  scrub: true,
+		  pin: true
+		}
+	}); */
+
+	ScrollTrigger.create({
+		trigger: '.sections-wrapper__container',
+		//start: "50% top",
+		start: "top top",
+		end: `${window.innerHeight}px top`,
+		toggleClass: "active",
+		//markers: true,
+		onUpdate: self => (self.progress == 1) ? document.querySelector('.sections-wrapper__container').classList.add('_active') : document.querySelector('.sections-wrapper__container').classList.remove('_active'),
+		//end: `${window.innerHeight} top`,
+		pin: true,
+		
 	})
+	
+
+	
+
+	/* const folderCards = document.querySelectorAll('.anim-folder-card');
+
+	folderCards.forEach(folderCard => {
+		gsap.to(folderCard, {
+			scrollTrigger: {
+			  trigger: folderCard,
+			  scrub: true,
+			  //pin: true,
+			  start: "top center",
+			},
+			y: `-${randomInteger(50, 100)}%`,
+			duration: 2,
+			//duration: 1, ease: "circ.out",
+		});
+	}) */
+
+	
 })
 
 /* ScrollTrigger.create({
@@ -154,7 +307,7 @@ mm.add("(max-width: 992px)", () => {
 	//y: "20%",
 	//duration: 1, ease: "circ.out",
 }); */
-
+var sticky = new Sticky('.schedule__bg');
 
 
 
@@ -165,7 +318,20 @@ mm.add("(max-width: 992px)", () => {
 
 
 
+// =-=-=-=-=-=-=-=-=-=-=-=- <get-coords> -=-=-=-=-=-=-=-=-=-=-=-=
 
+function getCoords(elem) {
+	let box = elem.getBoundingClientRect();
+
+	return {
+	top: box.top + window.pageYOffset,
+	right: box.right + window.pageXOffset,
+	bottom: box.bottom + window.pageYOffset,
+	left: box.left + window.pageXOffset
+	};
+}
+
+// =-=-=-=-=-=-=-=-=-=-=-=- </get-coords> -=-=-=-=-=-=-=-=-=-=-=-=
 
 
 
@@ -274,7 +440,19 @@ body.addEventListener('click', function (event) {
 		if(smoother) {
 			
 			const section = document.querySelector(headerLink.getAttribute('href'));
-			smoother.scrollTo(section, true);
+			if(section) {
+				if(section.closest('.sections-wrapper')) {
+					/* window.scrollTo({
+						left:0, top: getCoords(section.closest('.sections-wrapper')).top + window.innerHeight + section.offsetTop, behavior: "smooth"
+					}) */
+					smoother.scrollTo(getCoords(section.closest('.sections-wrapper')).top + window.innerHeight + section.offsetTop, true);
+				} else {
+					window.scrollTo({
+						left:0, top: getCoords(section).top, behavior: "smooth"
+					})
+				}
+			}
+			
 		} else {
 			section = document.querySelector(headerLink.getAttribute('href'))
 
@@ -285,10 +463,18 @@ body.addEventListener('click', function (event) {
 			})
 		
 			if(section) {
+
+				if(section.closest('.sections-wrapper')) {
+					window.scrollTo({
+						left:0, top: getCoords(section.closest('.sections-wrapper')).top + window.innerHeight + section.offsetTop, behavior: "smooth"
+					})
+				} else {
+					window.scrollTo({
+						left:0, top: getCoords(section).top, behavior: "smooth"
+					})
+				}
 				//section.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
-				window.scrollTo({
-					left:0, top: section.offsetTop, behavior: "smooth"
-				})
+				
 				ScrollTrigger.refresh( true ) ;
 				/* setTimeout(() => {
 					ScrollTrigger.enable();
@@ -323,15 +509,14 @@ body.addEventListener('click', function (event) {
 
 	// =-=-=-=-=-=-=-=-=-=-=-=- <FAQ> -=-=-=-=-=-=-=-=-=-=-=-=
 	
-	const faqItemBtn = $(".faq__item--btn")
-	if(faqItemBtn) {
+	const faqItem = $(".faq__item")
+	if(faqItem) {
 
-		faqItemBtn.classList.toggle('_active');
+		faqItem.classList.toggle('_active');
 	
-		const faqItem = faqItemBtn.closest('.faq__item'),
-		faqItemAnswear = faqItem.querySelector('.faq__item--answear');
+		const faqItemAnswear = faqItem.querySelector('.faq__item--answear');
 
-		if(faqItemBtn.classList.contains('_active')) {
+		if(faqItem.classList.contains('_active')) {
 			gsap.fromTo(faqItemAnswear, {
 				height: 0,
 				ease: "circ.out",
@@ -368,10 +553,9 @@ body.addEventListener('click', function (event) {
 
 	// =-=-=-=-=-=-=-=-=-=-=-=- <header-lang> -=-=-=-=-=-=-=-=-=-=-=-=
 	
-	const headerLangSwitch = $(".header__lang--switch")
-	if(headerLangSwitch) {
+	const headerLang = $(".header__lang")
+	if(headerLang) {
 	
-		const headerLang = headerLangSwitch.closest('.header__lang');
 		headerLang.classList.toggle('_active');
 		if(headerLang.classList.contains('_active')) {
 			setTimeout(() => {
@@ -628,5 +812,5 @@ window.addEventListener('load', function (event) {
 		setTimeout(() => {
 			preloader.remove();
 		},1500)
-	},1000)
+	},1300)
 })

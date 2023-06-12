@@ -21,7 +21,7 @@
 		}
 	</style>
 	<link rel="stylesheet" href="css/style-critical.min.css">
-	<link rel="stylesheet" href="css/style.min.css" id="lazy-styles" media="print">
+	<link rel="stylesheet" href="css/style.min.css" id="lazy-styles" media="all">
 	<script>
 		document.querySelector('html').style.setProperty("--vh", window.innerHeight * 0.01 + "px");
 		document.addEventListener('DOMContentLoaded', function(event) {
@@ -61,13 +61,13 @@
 					<div class="header__nav--body">
 						<ul class="header__nav--list">
 							<li>
-								<a href="#schedule">
-									Расписание
+								<a href="#schedule" aria-label="Расписание">
+									<span>Расписание</span>
 								</a>
 							</li>
 							<li>
-								<a href="#faq">
-									Вопросы
+								<a href="#faq" aria-label="Вопросы">
+									<span>Вопросы</span>
 								</a>
 							</li>
 						</ul>
@@ -78,14 +78,13 @@
 								</span>
 								<ul class="header__add-nav--list">
 									<li>
-										<a href="#">
-											Retrit
+										<a href="#" aria-label="Retrit">
+											<span>Retrit</span>
 										</a>
 									</li>
 									<li>
-										<a href="#" class="disabled">
-											Shop
-											(Soon)
+										<a href="#" data-disabled="1" aria-label="Shop (Soon)">
+											<span>Shop (Soon)</span>
 										</a>
 									</li>
 								</ul>
@@ -105,7 +104,7 @@
 			</header>
 
 			<main class="main">
-				<section class="hero container">
+				<section class="hero container test">
 					<div class="hero__bg">
 						<div class="hero__bg--poster" style="background-image: url(img/index/hero/hero-poster.webp);">
 						</div>
@@ -126,10 +125,10 @@
 						</div>
 					</div>
 				</section>
-				<section class="schedule container">
+				<section class="schedule container test">
 					<div class="schedule__bg">
-						<div class="noise-decor" style="background-image: url(img/noise.webp);"></div>
 						<div class="schedule__bg--wrapper">
+							<div class="noise-decor" style="background-image: url(img/noise.gif);"></div>
 							<h2 class="schedule__title main-title">
 								Расписание
 							</h2>
@@ -161,7 +160,7 @@
 											Детальнее
 										</a>
 										<span class="folder-card__seats">
-											/ 40 мест
+											40 мест
 										</span>
 									</div>
 								</div>
@@ -185,7 +184,7 @@
 											Детальнее
 										</a>
 										<span class="folder-card__seats">
-											/ 40 мест
+											40 мест
 										</span>
 									</div>
 								</div>
@@ -209,7 +208,7 @@
 											Детальнее
 										</a>
 										<span class="folder-card__seats">
-											/ 40 мест
+											40 мест
 										</span>
 									</div>
 								</div>
@@ -233,7 +232,7 @@
 											Детальнее
 										</a>
 										<span class="folder-card__seats">
-											/ 40 мест
+											40 мест
 										</span>
 									</div>
 								</div>
@@ -257,7 +256,7 @@
 											Детальнее
 										</a>
 										<span class="folder-card__seats">
-											/ 40 мест
+											40 мест
 										</span>
 									</div>
 								</div>
@@ -265,133 +264,140 @@
 						</li>
 					</ul>
 				</section>
-				<section class="social primary-bg container">
-					<h2 class="social__title visually-hidden">Наши соцсети</h2>
-					<div class="social__card">
-						<b class="social__card--name">instagram проекта</b>
-						<h3 class="social__card--title">
-							Общение коммьюнити, полезная информация, видео и статьи
-						</h3>
-						<a href="#" class="social__card--btn btn _light">
-							<svg width="16" height="17" viewBox="0 0 16 17">
-								<use xlink:href="img/sprites.svg#instagram"></use>
-							</svg>
-							@tim_masha
-						</a>
-					</div>
-					<div class="social__card">
-						<b class="social__card--name">telegram проекта</b>
-						<h3 class="social__card--title">
-							Информация про новые потоки ретритов и интервью с гостями
-						</h3>
-						<a href="#" class="social__card--btn btn _light">
-							<svg width="16" height="17" viewBox="0 0 16 17">
-								<use xlink:href="img/sprites.svg#instagram"></use>
-							</svg>
-							@tim_masha
-						</a>
-					</div>
-				</section>
-				<section class="faq container primary-bg" id="faq">
-					<h2 class="faq__section-name">
-						/ Пространство вопросов и ответов
-					</h2>
-					<h3 class="faq__title title">
-						Q&A
-					</h3>
-					<ul class="faq__list">
-						<li class="faq__item">
-							<div class="faq__item--question">
-								<div class="faq__item--number"></div>
-								<h4 class="faq__item--title">
-									Чайная церемония как инструмент баланса и поиска истинных желаний
-								</h4>
-								<button class="faq__item--btn" type="button" aria-label="Открыть/Закрыть ответ"></button>
+				<div class="sections-wrapper test">
+					<div class="sections-wrapper__container">
+						<section class="social primary-bg container">
+							<h2 class="social__title visually-hidden">Наши соцсети</h2>
+							<div class="social__card">
+								<b class="social__card--name">instagram проекта</b>
+								<h3 class="social__card--title">
+									Общение коммьюнити, полезная информация, видео и статьи
+								</h3>
+								<a href="#" class="social__card--btn btn _light">
+									<svg width="16" height="17" viewBox="0 0 16 17">
+										<use xlink:href="img/sprites.svg#instagram"></use>
+									</svg>
+									@tim_masha
+								</a>
 							</div>
-							<div class="faq__item--answear">
-								<p>
-									Если любишь читать и обсуждать книги с окружающими. Если хочешь качественно повысить коммуникацию с окружающими. Если долгое время хотел познакомиться с концепцией Гэри Чепмена о Пяти Языках Любви. Если любишь читать и обсуждать книги с окружающими.Если хочешь качественно повысить коммуникацию с окружающими. Если долгое время хотел
-								</p>
+							<div class="social__card">
+								<b class="social__card--name">telegram проекта</b>
+								<h3 class="social__card--title">
+									Информация про новые потоки ретритов и интервью с гостями
+								</h3>
+								<a href="#" class="social__card--btn btn _light">
+									<svg width="16" height="17" viewBox="0 0 16 17">
+										<use xlink:href="img/sprites.svg#telegram"></use>
+									</svg>
+									@tim_masha
+								</a>
 							</div>
-						</li>
-						<li class="faq__item">
-							<div class="faq__item--question">
-								<div class="faq__item--number"></div>
-								<h4 class="faq__item--title">
-									Чайная церемония как инструмент баланса и поиска истинных желаний
-								</h4>
-								<button class="faq__item--btn" type="button" aria-label="Открыть/Закрыть ответ"></button>
-							</div>
-							<div class="faq__item--answear">
-								<p>
-									Если любишь читать и обсуждать книги с окружающими. Если хочешь качественно повысить коммуникацию с окружающими. Если долгое время хотел познакомиться с концепцией Гэри Чепмена о Пяти Языках Любви. Если любишь читать и обсуждать книги с окружающими.Если хочешь качественно повысить коммуникацию с окружающими. Если долгое время хотел
-								</p>
-							</div>
-						</li>
-						<li class="faq__item">
-							<div class="faq__item--question">
-								<div class="faq__item--number"></div>
-								<h4 class="faq__item--title">
-									Чайная церемония как инструмент баланса и поиска истинных желаний
-								</h4>
-								<button class="faq__item--btn" type="button" aria-label="Открыть/Закрыть ответ"></button>
-							</div>
-							<div class="faq__item--answear">
-								<p>
-									Если любишь читать и обсуждать книги с окружающими. Если хочешь качественно повысить коммуникацию с окружающими. Если долгое время хотел познакомиться с концепцией Гэри Чепмена о Пяти Языках Любви. Если любишь читать и обсуждать книги с окружающими.Если хочешь качественно повысить коммуникацию с окружающими. Если долгое время хотел
-								</p>
-							</div>
-						</li>
-						<li class="faq__item">
-							<div class="faq__item--question">
-								<div class="faq__item--number"></div>
-								<h4 class="faq__item--title">
-									Чайная церемония как инструмент баланса и поиска истинных желаний
-								</h4>
-								<button class="faq__item--btn" type="button" aria-label="Открыть/Закрыть ответ"></button>
-							</div>
-							<div class="faq__item--answear">
-								<p>
-									Если любишь читать и обсуждать книги с окружающими. Если хочешь качественно повысить коммуникацию с окружающими. Если долгое время хотел познакомиться с концепцией Гэри Чепмена о Пяти Языках Любви. Если любишь читать и обсуждать книги с окружающими.Если хочешь качественно повысить коммуникацию с окружающими. Если долгое время хотел
-								</p>
-							</div>
-						</li>
-						<li class="faq__item">
-							<div class="faq__item--question">
-								<div class="faq__item--number"></div>
-								<h4 class="faq__item--title">
-									Чайная церемония как инструмент баланса и поиска истинных желаний
-								</h4>
-								<button class="faq__item--btn" type="button" aria-label="Открыть/Закрыть ответ"></button>
-							</div>
-							<div class="faq__item--answear">
-								<p>
-									Если любишь читать и обсуждать книги с окружающими. Если хочешь качественно повысить коммуникацию с окружающими. Если долгое время хотел познакомиться с концепцией Гэри Чепмена о Пяти Языках Любви. Если любишь читать и обсуждать книги с окружающими.Если хочешь качественно повысить коммуникацию с окружающими. Если долгое время хотел
-								</p>
-							</div>
-						</li>
-					</ul>
-					<div class="faq__block">
-						<div class="faq__block--folder folder-card _light">
-							<div class="folder-card__header">
-								<svg width="0" height="0" xmlns="http://www.w3.org/2000/svg" version="1.0" viewBox="0 0 180 152">
-									<path d="M156 2.1c-20.7 5.4-32 13.8-64.5 48.1-22.4 23.5-47.4 35-81.7 37.4l-9.8.7v3.1c.1 6.4 3.1 17.4 7.1 25.6 5.8 11.7 16.2 22.1 27.9 27.9 14.4 7 14.8 7.1 83.8 7.1H180V0l-8.2.1c-4.9 0-11.4.8-15.8 2z" />
-								</svg>
-								<b class="folder-card__name">
-									Остались вопросы?
-								</b>
-							</div>
-							<div class="folder-card__main">
-								<div class="folder-card__text">
-									<p>
-										Наша техничесткая поддержка на связи с 08:00 до 19:00 и готова ответить на все твои вопросы.Что обратиться в поддержку, пиши на почту:
-									</p>
-									<a href="mailto:help@sacrumtalk.com">help@sacrumtalk.com</a>
+						</section>
+						<section class="faq container primary-bg" id="faq">
+							<h2 class="faq__section-name">
+								/ Пространство вопросов и ответов
+							</h2>
+							<h3 class="faq__title title">
+								Q&A
+							</h3>
+							<ul class="faq__list">
+								<li class="faq__item">
+									<div class="faq__item--question">
+										<div class="faq__item--number"></div>
+										<h4 class="faq__item--title">
+											Чайная церемония как инструмент баланса и поиска истинных желаний
+										</h4>
+										<div class="faq__item--btn" aria-label="Открыть/Закрыть ответ"></div>
+									</div>
+									<div class="faq__item--answear">
+										<p>
+											Если любишь читать и обсуждать книги с окружающими. Если хочешь качественно повысить коммуникацию с окружающими. Если долгое время хотел познакомиться с концепцией Гэри Чепмена о Пяти Языках Любви. Если любишь читать и обсуждать книги с окружающими.Если хочешь качественно повысить коммуникацию с окружающими. Если долгое время хотел
+										</p>
+									</div>
+								</li>
+								<li class="faq__item">
+									<div class="faq__item--question">
+										<div class="faq__item--number"></div>
+										<h4 class="faq__item--title">
+											Чайная церемония как инструмент баланса и поиска истинных желаний
+										</h4>
+										<div class="faq__item--btn" aria-label="Открыть/Закрыть ответ"></div>
+									</div>
+									<div class="faq__item--answear">
+										<p>
+											Если любишь читать и обсуждать книги с окружающими. Если хочешь качественно повысить коммуникацию с окружающими. Если долгое время хотел познакомиться с концепцией Гэри Чепмена о Пяти Языках Любви. Если любишь читать и обсуждать книги с окружающими.Если хочешь качественно повысить коммуникацию с окружающими. Если долгое время хотел
+										</p>
+									</div>
+								</li>
+								<li class="faq__item">
+									<div class="faq__item--question">
+										<div class="faq__item--number"></div>
+										<h4 class="faq__item--title">
+											Чайная церемония как инструмент баланса и поиска истинных желаний
+										</h4>
+										<div class="faq__item--btn" aria-label="Открыть/Закрыть ответ"></div>
+									</div>
+									<div class="faq__item--answear">
+										<p>
+											Если любишь читать и обсуждать книги с окружающими. Если хочешь качественно повысить коммуникацию с окружающими. Если долгое время хотел познакомиться с концепцией Гэри Чепмена о Пяти Языках Любви. Если любишь читать и обсуждать книги с окружающими.Если хочешь качественно повысить коммуникацию с окружающими. Если долгое время хотел
+										</p>
+									</div>
+								</li>
+								<li class="faq__item">
+									<div class="faq__item--question">
+										<div class="faq__item--number"></div>
+										<h4 class="faq__item--title">
+											Чайная церемония как инструмент баланса и поиска истинных желаний
+										</h4>
+										<div class="faq__item--btn" aria-label="Открыть/Закрыть ответ"></div>
+									</div>
+									<div class="faq__item--answear">
+										<p>
+											Если любишь читать и обсуждать книги с окружающими. Если хочешь качественно повысить коммуникацию с окружающими. Если долгое время хотел познакомиться с концепцией Гэри Чепмена о Пяти Языках Любви. Если любишь читать и обсуждать книги с окружающими.Если хочешь качественно повысить коммуникацию с окружающими. Если долгое время хотел
+										</p>
+									</div>
+								</li>
+								<li class="faq__item">
+									<div class="faq__item--question">
+										<div class="faq__item--number"></div>
+										<h4 class="faq__item--title">
+											Чайная церемония как инструмент баланса и поиска истинных желаний
+										</h4>
+										<div class="faq__item--btn" aria-label="Открыть/Закрыть ответ"></div>
+									</div>
+									<div class="faq__item--answear">
+										<p>
+											Если любишь читать и обсуждать книги с окружающими. Если хочешь качественно повысить коммуникацию с окружающими. Если долгое время хотел познакомиться с концепцией Гэри Чепмена о Пяти Языках Любви. Если любишь читать и обсуждать книги с окружающими.Если хочешь качественно повысить коммуникацию с окружающими. Если долгое время хотел
+										</p>
+									</div>
+								</li>
+							</ul>
+							<div class="faq__block">
+								<div class="faq__block--folder folder-card _light">
+									<div class="folder-card__header">
+										<svg width="0" height="0" xmlns="http://www.w3.org/2000/svg" version="1.0" viewBox="0 0 180 152">
+											<path d="M156 2.1c-20.7 5.4-32 13.8-64.5 48.1-22.4 23.5-47.4 35-81.7 37.4l-9.8.7v3.1c.1 6.4 3.1 17.4 7.1 25.6 5.8 11.7 16.2 22.1 27.9 27.9 14.4 7 14.8 7.1 83.8 7.1H180V0l-8.2.1c-4.9 0-11.4.8-15.8 2z" />
+										</svg>
+										<b class="folder-card__name">
+											Остались вопросы?
+										</b>
+									</div>
+									<div class="folder-card__main">
+										<div class="folder-card__text">
+											<p>
+												Наша техничесткая поддержка на связи с 08:00 до 19:00 и готова ответить на все твои вопросы.
+											</p>
+											<p>
+												Что обратиться в поддержку, пиши на почту:
+											</p>
+											<a href="mailto:help@sacrumtalk.com">help@sacrumtalk.com</a>
+										</div>
+									</div>
 								</div>
 							</div>
-						</div>
+						</section>
 					</div>
-				</section>
+				</div>
 			</main>
 
 
@@ -420,7 +426,7 @@
 									<ul>
 										<li>
 											<label>
-												<input type="radio" name="date" value="2023-06-14 12:00">
+												<input type="radio" name="date" value="2023-06-14 12:00" checked>
 												<span>14 июня / 12:00</span>
 											</label>
 										</li>
@@ -522,14 +528,16 @@
 					<form method="post" class="application-popup__form">
 						<div class="application-popup__form--wrapper">
 							<label>
-								<span>ФИО</span>
 								<input type="text" name="your-name" placeholder="Имя" required>
+								<span>ФИО</span>
 							</label>
 							<label>
 								<input type="email" name="email" placeholder="Электронная почта" required>
+								<span>Электронная почта</span>
 							</label>
 							<label>
 								<input type="tel" name="phone" placeholder="Номер телефона" required>
+								<span>Номер телефона</span>
 							</label>
 							<button class="btn" type="submit">
 								Отправить

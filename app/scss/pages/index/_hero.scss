@@ -9,7 +9,7 @@
 	display: flex;
 	align-items: flex-end;
 
-	
+	z-index: 5;
 
 	// .hero__bg
 
@@ -64,6 +64,8 @@
 
 	&__content {
 
+		width: 100%;
+
 		position: relative;
 		z-index: 2;
 
@@ -82,10 +84,12 @@
 			align-items: flex-end;
 
 			@include _768 {
+				align-self: stretch;
 				flex-direction: column;
 				align-items: flex-start;
 
-				padding: 25px 0;
+				padding: 40px 0 25px 0;
+				max-width: 232px;
 			}
 
 			padding: 14px 0;

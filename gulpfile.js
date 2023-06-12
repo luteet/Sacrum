@@ -94,6 +94,7 @@ function scriptsLib() {
 		'node_modules/gsap/dist/ScrollTrigger.min.js', // GSAP
 		'node_modules/gsap/dist/ScrollToPlugin.min.js', // GSAP
 		'app/js/ScrollSmoother.min.js', // GSAP
+		'node_modules/sticky-js/dist/sticky.min.js',
 	])
 	.pipe(concat('libs.min.js'))
 	.pipe(uglify())
