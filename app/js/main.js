@@ -172,23 +172,25 @@ mm.add("(max-width: 992px)", () => {
 		//effects: true,
 	}); */
 	document.querySelector('.schedule__bg').offsetHeight = `${document.querySelector('.schedule__bg').offsetHeight}px`;
-	gsap.from('.schedule__bg--wrapper', {
-		scrollTrigger: {
-		  trigger: '.schedule__bg--wrapper',
-
-		  //scub: true,
-
-		  start: "top top",
-		  end: `${document.querySelector('.schedule__bg').offsetHeight}px 0vh`,
-		  pin: true,
-		  //markers: true,
-		  //pin: true,
-		  //start: "-20% top",
-		},
-		//bottom: `${document.querySelector('.schedule__bg').offsetHeight - window.innerHeight}px`,
-		//duration: 2
-		//bottom: `${document.querySelector('.schedule__bg').offsetHeight - document.querySelector('.schedule__bg--wrapper').offsetHeight - 50}px`,
-	});
+	setTimeout(() => {
+		gsap.from('.schedule__bg--wrapper', {
+			scrollTrigger: {
+			  trigger: '.schedule__bg--wrapper',
+	
+			  //scub: true,
+	
+			  start: "top top",
+			  end: `${document.querySelector('.schedule__bg').offsetHeight}px 0vh`,
+			  pin: true,
+			  //markers: true,
+			  //pin: true,
+			  //start: "-20% top",
+			},
+			//bottom: `${document.querySelector('.schedule__bg').offsetHeight - window.innerHeight}px`,
+			//duration: 2
+			//bottom: `${document.querySelector('.schedule__bg').offsetHeight - document.querySelector('.schedule__bg--wrapper').offsetHeight - 50}px`,
+		});
+	},100)
 
 	/* ScrollTrigger.normalizeScroll({
 		allowNestedScroll: true, 
