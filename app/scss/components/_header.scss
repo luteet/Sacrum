@@ -443,6 +443,11 @@
 
 		&:hover &--switch {
 			border-color: var(--black-3);
+			
+		}
+
+		&:hover &--param {
+			color: var(--black-3);
 		}
 
 		&--param {

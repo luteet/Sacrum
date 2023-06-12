@@ -774,6 +774,91 @@ popup.init()
 // =-=-=-=-=-=-=-=-=-=-=-=- </popup> -=-=-=-=-=-=-=-=-=-=-=-=
 
 
+
+
+
+function validatePhoneNumber(input_str) {
+	var re = /^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/;
+  
+	return re.test(input_str);
+}
+
+function validateEmail(email) {
+	let reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+	return reg.test(email);
+}
+
+function validateName(name) {
+	let reg = /\d/;
+	return reg.test(name);
+}
+
+const telInputs = document.querySelectorAll('input[type="tel"]');
+telInputs.forEach(telInput => {
+	
+	const label = telInput.closest('label');
+	telInput.addEventListener('blur', function (event) {
+		if(event.target.value != "") {
+			if(validatePhoneNumber(event.target.value)) {
+				label.classList.add('valid');
+				label.classList.remove('error');
+			} else {
+				label.classList.add('error');
+				label.classList.remove('valid');
+			}
+		} else {
+			label.classList.remove('error');
+			label.classList.add('error');
+		}
+		
+	})
+})
+
+const emailInputs = document.querySelectorAll('input[type="email"]');
+emailInputs.forEach(emailInput => {
+	
+	const label = emailInput.closest('label');
+	emailInput.addEventListener('blur', function (event) {
+		if(event.target.value != "") {
+			if(validateEmail(event.target.value)) {
+				label.classList.add('valid');
+				label.classList.remove('error');
+			} else {
+				label.classList.add('error');
+				label.classList.remove('valid');
+			}
+		} else {
+			label.classList.remove('error');
+			label.classList.add('error');
+		}
+		
+	})
+})
+
+const nameInputs = document.querySelectorAll('input[name="your-name"]');
+nameInputs.forEach(nameInput => {
+	
+	const label = nameInput.closest('label');
+	nameInput.addEventListener('blur', function (event) {
+		if(event.target.value != "") {
+			if(!validateName(event.target.value)) {
+				label.classList.add('valid');
+				label.classList.remove('error');
+			} else {
+				label.classList.add('error');
+				label.classList.remove('valid');
+			}
+		} else {
+			label.classList.remove('error');
+			label.classList.add('error');
+		}
+		
+	})
+})
+
+
+
+
 const preloader = document.querySelector('.preloader');
 const heroBg = document.querySelector('.hero__bg');
 

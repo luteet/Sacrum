@@ -12,7 +12,7 @@
 
 	
 	overflow: hidden;
-
+	
 	//padding-top: 100svh; margin-top: -100svh;	
 	
 
@@ -39,10 +39,10 @@
 			position: absolute;
 			left: 0; bottom: 100%;
 			//transform: translate(0,50);
-			width: 100%; height: max(calc((var(--svh,1vh) * 100) + 100px), 667px); //max(calc((var(--svh,1vh) * 100) + 100px), 667px)
+			width: 100%; height: max(calc((var(--svh,1vh) * 100) + 100px), 667px);
 			background: var(--white-2);
 			z-index: 2;
-			//transform: translate(0,-100%);
+			transform: translate(0,0%);
 			
 			@include _992 {
 				height: 100vh;
@@ -53,8 +53,8 @@
 		&--image {
 			position: absolute;
 			left: 0; top: 0;
-			width: 100%; height: max(calc((var(--svh,1vh) * 100) + 100px), 667px); //max(calc((var(--svh,1vh) * 100) + 100px), 667px)
-			//transform: translate(0,100%);
+			width: 100%; height: max(calc((var(--svh,1vh) * 100) + 100px), 667px);
+			transform: translate(0,0%);
 			@include _992 {
 				height: 100vh;
 			}

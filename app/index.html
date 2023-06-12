@@ -1,7 +1,7 @@
 @@include("html/_header.html")
 
 	<main class="main">
-		<section class="hero container test">
+		<section class="hero container">
 			<div class="hero__bg">
 				<div class="hero__bg--poster" style="background-image: url(img/index/hero/hero-poster.webp);">
 				</div>
@@ -16,13 +16,16 @@
 						<p>это коммьюнити людей,</p>
 						<p>объединенных единым порывом глубокого изучения себя и мира</p>
 					</div>
-					<a href="#schedule" class="hero__content--btn btn scroll-btn">
-						Записаться
+					<a href="#schedule" class="hero__content--btn btn scroll-btn" aria-label="Записаться">
+						<span>
+							<span aria-hidden="true">Записаться</span>
+							<span>Записаться</span>
+						</span>
 					</a>
 				</div>
 			</div>
 		</section>
-		<section class="schedule container test">
+		<section class="schedule container">
 			<div class="schedule__bg">
 				<div class="schedule__bg--wrapper">
 					<div class="noise-decor" style="background-image: url(img/noise.gif);"></div>
@@ -48,7 +51,7 @@
 				])
 			</ul>
 		</section>
-		<div class="sections-wrapper test">
+		<div class="sections-wrapper">
 			<div class="sections-wrapper__container">
 				<section class="social primary-bg container">
 					<h2 class="social__title visually-hidden">Наши соцсети</h2>
@@ -57,11 +60,21 @@
 						<h3 class="social__card--title">
 							Общение коммьюнити, полезная информация, видео и статьи
 						</h3>
-						<a href="#" class="social__card--btn btn _light">
-							<svg width="16" height="17" viewBox="0 0 16 17">
-								<use xlink:href="img/sprites.svg#instagram"></use>
-							</svg>
-							@tim_masha
+						<a href="#" class="social__card--btn btn _light" aria-label="@tim_masha">
+							<span>
+								<span aria-hidden="true">
+									<svg width="16" height="17" viewBox="0 0 16 17">
+										<use xlink:href="img/sprites.svg#instagram"></use>
+									</svg>
+									@tim_masha
+								</span>
+								<span>
+									<svg width="16" height="17" viewBox="0 0 16 17">
+										<use xlink:href="img/sprites.svg#instagram"></use>
+									</svg>
+									@tim_masha
+								</span>
+							</span>
 						</a>
 					</div>
 					<div class="social__card">
@@ -69,11 +82,21 @@
 						<h3 class="social__card--title">
 							Информация про новые потоки ретритов и интервью с гостями
 						</h3>
-						<a href="#" class="social__card--btn btn _light">
-							<svg width="16" height="17" viewBox="0 0 16 17">
-								<use xlink:href="img/sprites.svg#telegram"></use>
-							</svg>
-							@tim_masha
+						<a href="#" class="social__card--btn btn _light" aria-label="@tim_masha">
+							<span>
+								<span aria-hidden="true">
+									<svg width="16" height="17" viewBox="0 0 16 17">
+										<use xlink:href="img/sprites.svg#instagram"></use>
+									</svg>
+									@tim_masha
+								</span>
+								<span>
+									<svg width="16" height="17" viewBox="0 0 16 17">
+										<use xlink:href="img/sprites.svg#instagram"></use>
+									</svg>
+									@tim_masha
+								</span>
+							</span>
 						</a>
 					</div>
 				</section>

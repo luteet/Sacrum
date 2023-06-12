@@ -44,14 +44,17 @@
 
 	@include _992 {
 		font-weight: 500;
-		font-size: 8rem;
+		font-size: 15vw;
 		letter-spacing: -0.08em;
+		i {
+			font-size: 12vw;
+		}
 	}
 
 	@include _container {
-		font-size: 13.375rem;
+		font-size: 16vw;
 		i {
-			font-size: 11.25rem;
+			font-size: 12vw;
 			line-height: 100%;
 			letter-spacing: -0.08em;
 		}
@@ -79,8 +82,6 @@
 	}
 
 }
-
-
 
 .section-title {
 

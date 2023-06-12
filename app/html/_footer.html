@@ -51,8 +51,11 @@
 									</ul>
 								</div>
 								<div class="application-popup__submit-container">
-									<button class="btn" type="button">
-										Записаться
+									<button class="btn" type="button" aria-label="Записаться">
+										<span>
+											<span aria-hidden="true">Записаться</span>
+											<span>Записаться</span>
+										</span>
 									</button>
 									<span class="application-popup__seats">40 мест</span>
 								</div>
@@ -125,41 +128,44 @@
 					</div>
 					<form method="post" class="application-popup__form">
 						<div class="application-popup__form--wrapper">
-							<label>
+							<label data-error-text="Please enter a valid name.">
 								<input type="text" name="your-name" placeholder="Имя" required>
 								<span>ФИО</span>
 							</label>
-							<label>
+							<label data-error-text="Please enter a valid email.">
 								<input type="email" name="email" placeholder="Электронная почта" required>
 								<span>Электронная почта</span>
 							</label>
-							<label>
+							<label data-error-text="Please enter a valid phone number.">
 								<input type="tel" name="phone" placeholder="Номер телефона" required>
 								<span>Номер телефона</span>
 							</label>
-							<button class="btn" type="submit">
-								Отправить
+							<button class="btn" type="submit" aria-label="Отправить">
+								<span>
+									<span aria-hidden="true">Отправить</span>
+									<span>Отправить</span>
+								</span>
 							</button>
 						</div>
 					</form>
-					<div class="application-popup__message">
+					<!-- <div class="application-popup__message">
 						<div class="application-popup__message--wrapper">
-						<h3 class="application-popup__message--title _successful">
-							<div class="application-popup__message--icon">
-								<svg width="8" height="7" viewBox="0 0 8 7">
-									<use xlink:href="img/sprites.svg#check"></use>
-								</svg>
+							<h3 class="application-popup__message--title _successful">
+								<div class="application-popup__message--icon">
+									<svg width="8" height="7" viewBox="0 0 8 7">
+										<use xlink:href="img/sprites.svg#check"></use>
+									</svg>
+								</div>
+								Ваша оплата прошла успешно!
+							</h3>
+							<div class="application-popup__message--text">
+								<p>
+									Если у вас остались вопросы, вы может обратиться в нашу поддержку, написав на почту:
+									<a href="#">help@sacrumtalk.com</a>
+								</p>
 							</div>
-							Ваша оплата прошла успешно!
-						</h3>
-						<div class="application-popup__message--text">
-							<p>
-								Если у вас остались вопросы, вы может обратиться в нашу поддержку, написав на почту:
-								<a href="#">help@sacrumtalk.com</a>
-							</p>
 						</div>
-					</div>
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</div>
