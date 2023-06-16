@@ -1,4 +1,66 @@
 .footer {
-	flex: 0 0 auto;
-	background: #ccc;
+	background: var(--primary-1);
+	color: var(--white);
+
+	padding-bottom: 24px;	
+	
+	@include _768 {
+		display: grid;
+
+		grid-template-columns: 290px auto;
+		gap: 0 47px;
+
+		> * {
+			align-self: center;
+		}
+	}
+
+	&__copy {
+		font-weight: 600;
+		font-size: 0.75rem;
+		line-height: 142%;
+		letter-spacing: -0.04em;
+		text-transform: uppercase;
+		color: var(--white-2);
+
+		opacity: 0.5;
+
+		@include _768 {
+			grid-column: 1; grid-row: 1;
+		}
+	}
+
+	&__list {
+		@include _768 {
+			grid-column: 2; grid-row: 1;
+		}
+
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+
+		margin-left: -20px;
+		padding-left: 0px;
+
+		a {
+			display: block;
+			padding: 12px 20px;
+
+			font-weight: 600;
+			font-size: 0.75rem;
+			line-height: 142%;
+			letter-spacing: -0.04em;
+			text-transform: uppercase;
+			color: var(--white-2);
+
+			transition: opacity .2s ease;
+			&:hover {
+				opacity: 0.8;
+			}
+			
+			&:active {
+				opacity: 0.6;
+			}
+		}
+	}
 }

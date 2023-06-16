@@ -136,6 +136,7 @@ mm.add("(min-width: 992px)", () => {
 		  //scub: true,
 		  //markers: true,
 		  start: "top top",
+		  //end: "50vh",
 		  //end: `${document.querySelector('.schedule__bg').offsetHeight - 100}px`,
 		  pin: true,
 		  //pin: true,
@@ -145,6 +146,7 @@ mm.add("(min-width: 992px)", () => {
 		duration: 2 */
 		//bottom: `${document.querySelector('.schedule__bg').offsetHeight - document.querySelector('.schedule__bg--wrapper').offsetHeight - 50}px`,
 	});
+	
 
 	/* const sections = document.querySelectorAll('section');
 	
@@ -154,8 +156,12 @@ mm.add("(min-width: 992px)", () => {
 	ScrollTrigger.create({
 		trigger: '.sections-wrapper__container',
 		//start: "50% top",
-		start: "top top",
-		end: `${window.innerHeight} top`,
+		/* start: "-50vh 100vh",
+		end: "50vh", */
+		start: `top 40%`,
+		end: `+=${window.innerHeight / 2}`,
+		
+		//end: `${window.innerHeight / 2} center`,
 		pin: true,
 	})
 
@@ -173,19 +179,24 @@ mm.add("(max-width: 992px)", () => {
 	}); */
 	document.querySelector('.schedule__bg').offsetHeight = `${document.querySelector('.schedule__bg').offsetHeight}px`;
 	setTimeout(() => {
-		gsap.from('.schedule__bg--wrapper', {
+		gsap.to('.main', {
 			scrollTrigger: {
 			  trigger: '.schedule__bg--wrapper',
 	
-			  //scub: true,
-	
-			  start: "top top",
-			  end: `${document.querySelector('.schedule__bg').offsetHeight}px 0vh`,
+			  //scrub: true,
 			  pin: true,
+			  start: "top top",
+			  //end: "top",
+			  end: `+=${document.querySelector('.main').offsetHeight}px`,
+			  //pin: true,
+			  //anticipatePin: 1,
+			  //pinType:"transform"
 			  //markers: true,
 			  //pin: true,
 			  //start: "-20% top",
 			},
+			//y: document.querySelector('.schedule__bg').offsetHeight,
+			//duration: 1,
 			//bottom: `${document.querySelector('.schedule__bg').offsetHeight - window.innerHeight}px`,
 			//duration: 2
 			//bottom: `${document.querySelector('.schedule__bg').offsetHeight - document.querySelector('.schedule__bg--wrapper').offsetHeight - 50}px`,
@@ -255,18 +266,18 @@ mm.add("(max-width: 992px)", () => {
 		}
 	}); */
 
-	ScrollTrigger.create({
+	/* ScrollTrigger.create({
 		trigger: '.sections-wrapper__container',
 		//start: "50% top",
-		start: "top top",
-		end: `${window.innerHeight}px top`,
+		start: "top center",
+		end: `+=${window.innerHeight / 2}`,
 		toggleClass: "active",
 		//markers: true,
 		onUpdate: self => (self.progress == 1) ? document.querySelector('.sections-wrapper__container').classList.add('_active') : document.querySelector('.sections-wrapper__container').classList.remove('_active'),
 		//end: `${window.innerHeight} top`,
 		pin: true,
 		
-	})
+	}) */
 	
 
 	
@@ -309,7 +320,7 @@ mm.add("(max-width: 992px)", () => {
 	//y: "20%",
 	//duration: 1, ease: "circ.out",
 }); */
-var sticky = new Sticky('.schedule__bg');
+//var sticky = new Sticky('.schedule__bg');
 
 
 
@@ -471,9 +482,11 @@ body.addEventListener('click', function (event) {
 						left:0, top: getCoords(section.closest('.sections-wrapper')).top + window.innerHeight + section.offsetTop, behavior: "smooth"
 					})
 				} else {
-					window.scrollTo({
-						left:0, top: getCoords(section).top, behavior: "smooth"
-					})
+					if(section.closest('.schedule')) {
+						window.scrollTo({
+							left:0, top: getCoords(section).top, behavior: "smooth"
+						})
+					}
 				}
 				//section.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
 				
@@ -692,8 +705,6 @@ function Popup(arg) {
 				if (popup.classList.contains('_transition-none')) popup.classList.remove('_transition-none')
 				if(smoother) smoother.paused(false);
 
-				
-
 				setTimeout(() => {
 					popup.classList.remove('_active');
 					function closeFunc() {
@@ -712,6 +723,11 @@ function Popup(arg) {
 						}
 
 						popupCheckClose = true;
+						setTimeout(() => {
+							document.querySelector('.application-popup__body--main-wrapper').innerHTML = '';
+							document.querySelector('.application-popup__body').classList.remove('_loaded');
+							document.querySelector('.application-popup__body').classList.remove('_loaded-start');
+						},200)
 						popup.removeEventListener('transitionend', closeFunc)
 					}
 
@@ -893,8 +909,9 @@ window.addEventListener('load', function (event) {
 		
 	},0)
 	setTimeout(() => {
-		preloader.classList.remove('_loading');
+		
 		preloader.classList.add('_loaded');
+		if(windowSize >= 992) ScrollTrigger.refresh();
 
 		setTimeout(() => {
 			preloader.remove();

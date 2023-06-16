@@ -434,6 +434,18 @@
 								</div>
 							</div>
 						</section>
+						<footer class="footer container">
+							<ul class="footer__list">
+								<li>
+									<a href="#">
+										договор публичной оферты
+									</a>
+								</li>
+							</ul>
+							<div class="footer__copy">
+								© 2023 sacrum. все права защинены
+							</div>
+						</footer>
 					</div>
 				</div>
 			</main>
@@ -445,7 +457,7 @@
 	<div class="application-popup popup" id="application-popup">
 		<div class="application-popup__wrapper popup-wrapper">
 			<div class="application-popup__bg popup-bg popup-close"></div>
-			<div class="application-popup__body popup-body">
+			<div class="application-popup__body popup-body _loaded">
 				<button type="button" class="application-popup__close-btn popup-close-btn popup-close">
 					Закрыть
 					<svg width="12" height="12" viewBox="0 0 12 12">
@@ -453,159 +465,162 @@
 					</svg>
 				</button>
 				<div class="application-popup__body--main">
-					<div class="application-popup__content">
-						<div class="application-popup__col">
-							<form method="post" class="application-popup__info">
-								<h2 class="application-popup__title">
-									Открытое чтение книги «5 языков любви» с Машей и Сашей
-								</h2>
-								<div class="application-popup__available-dates">
-									<h3>Доступные даты:</h3>
-									<ul>
-										<li>
-											<label>
-												<input type="radio" name="date" value="2023-06-14 12:00" checked>
-												<span>14 июня / 12:00</span>
-											</label>
-										</li>
-										<li>
-											<label>
-												<input type="radio" name="date" value="2023-06-21 12:00">
-												<span>21 июня / 12:00</span>
-											</label>
-										</li>
-										<li>
-											<label>
-												<input type="radio" name="date" value="2023-06-28 12:00">
-												<span>28 июня / 12:00</span>
-											</label>
-										</li>
-									</ul>
-								</div>
-								<div class="application-popup__info-list">
-									<h3>Этот ивент для тебя, если ты:</h3>
-									<ul>
-										<li>Испытываешь постоянную тревожность.</li>
-										<li>Нет ориентиров и понимания, куда двигаться дальше.</li>
-										<li>Хочешь научиться использовать страх, как ресурс для расширения.</li>
-									</ul>
-								</div>
-								<div class="application-popup__submit-container">
-									<button class="btn" type="button" aria-label="Записаться">
-										<span>
-											<span aria-hidden="true">Записаться</span>
-											<span>Записаться</span>
-										</span>
-									</button>
-									<span class="application-popup__seats">40 мест</span>
-								</div>
-							</form>
-						</div>
-						<div class="application-popup__col">
-							<div class="application-popup__grid">
-								<div class="application-popup__grid-cell">
-									<h4>Оплата:</h4>
-									<span>Открытый формат / Donation</span>
-								</div>
-								<div class="application-popup__grid-cell">
-									<h4>Где:</h4>
-									<span>One Love Coffee / Pinchuk Art Centre</span>
-								</div>
-								<div class="application-popup__grid-cell">
-									<h4>Длительность:</h4>
-									<span>2 часа 30 минут</span>
-								</div>
-								<div class="application-popup__grid-cell">
-									<h4>Язык: </h4>
-									<span>Русский / Украинский</span>
-								</div>
-								<div class="application-popup__grid-cell _large">
-									<h4>План встречи:</h4>
-									<ul>
-										<li>
-											Знакомство
-										</li>
-										<li>
-											Медитация для сонастройки
-										</li>
-										<li>
-											Лекция в формате открытой дискуссии
-										</li>
-										<li>
-											Сессия Q&A
-										</li>
-									</ul>
-								</div>
-								<div class="application-popup__grid-cell _full">
-									<h4>Спикеры мероприятия: </h4>
-									<div class="application-popup__person-list">
-										<div class="application-popup__person">
-											<div class="application-popup__person--avatar">
-												<picture>
-													<source srcset="img/index/schedule/avatar.avif" type="image/avif">
-													<source srcset="img/index/schedule/avatar.webp" type="image/webp">
-													<img src="img/index/schedule/avatar.png" alt="" width="50" height="50" loading="lazy">
-												</picture>
+					<!-- <div class="application-popup__loader"></div> -->
+					<div class="application-popup__body--main-wrapper">
+						<div class="application-popup__content">
+							<div class="application-popup__col">
+								<form method="post" class="application-popup__info">
+									<h2 class="application-popup__title">
+										Открытое чтение книги «5 языков любви» с Машей и Сашей
+									</h2>
+									<div class="application-popup__available-dates">
+										<h3>Доступные даты:</h3>
+										<ul>
+											<li>
+												<label>
+													<input type="radio" name="date" value="2023-06-14 12:00" checked>
+													<span>14 июня / 12:00</span>
+												</label>
+											</li>
+											<li>
+												<label>
+													<input type="radio" name="date" value="2023-06-21 12:00">
+													<span>21 июня / 12:00</span>
+												</label>
+											</li>
+											<li>
+												<label>
+													<input type="radio" name="date" value="2023-06-28 12:00">
+													<span>28 июня / 12:00</span>
+												</label>
+											</li>
+										</ul>
+									</div>
+									<div class="application-popup__info-list">
+										<h3>Этот ивент для тебя, если ты:</h3>
+										<ul>
+											<li>Испытываешь постоянную тревожность.</li>
+											<li>Нет ориентиров и понимания, куда двигаться дальше.</li>
+											<li>Хочешь научиться использовать страх, как ресурс для расширения.</li>
+										</ul>
+									</div>
+									<div class="application-popup__submit-container">
+										<button class="btn" type="button" aria-label="Записаться">
+											<span>
+												<span aria-hidden="true">Записаться</span>
+												<span>Записаться</span>
+											</span>
+										</button>
+										<span class="application-popup__seats">40 мест</span>
+									</div>
+								</form>
+							</div>
+							<div class="application-popup__col">
+								<div class="application-popup__grid">
+									<div class="application-popup__grid-cell">
+										<h4>Оплата:</h4>
+										<span>Открытый формат / Donation</span>
+									</div>
+									<div class="application-popup__grid-cell">
+										<h4>Где:</h4>
+										<span>One Love Coffee / Pinchuk Art Centre</span>
+									</div>
+									<div class="application-popup__grid-cell">
+										<h4>Длительность:</h4>
+										<span>2 часа 30 минут</span>
+									</div>
+									<div class="application-popup__grid-cell">
+										<h4>Язык: </h4>
+										<span>Русский / Украинский</span>
+									</div>
+									<div class="application-popup__grid-cell _large">
+										<h4>План встречи:</h4>
+										<ul>
+											<li>
+												Знакомство
+											</li>
+											<li>
+												Медитация для сонастройки
+											</li>
+											<li>
+												Лекция в формате открытой дискуссии
+											</li>
+											<li>
+												Сессия Q&A
+											</li>
+										</ul>
+									</div>
+									<div class="application-popup__grid-cell _full">
+										<h4>Спикеры мероприятия: </h4>
+										<div class="application-popup__person-list">
+											<div class="application-popup__person">
+												<div class="application-popup__person--avatar">
+													<picture>
+														<source srcset="img/index/schedule/avatar.avif" type="image/avif">
+														<source srcset="img/index/schedule/avatar.webp" type="image/webp">
+														<img src="img/index/schedule/avatar.png" alt="" width="50" height="50" loading="lazy">
+													</picture>
+												</div>
+												<h5>Маша Тимошенко</h5>
+												<span>автор пространства Sarcum</span>
 											</div>
-											<h5>Маша Тимошенко</h5>
-											<span>автор пространства Sarcum</span>
-										</div>
-										<div class="application-popup__person">
-											<div class="application-popup__person--avatar">
-												<picture>
-													<source srcset="img/index/schedule/avatar.avif" type="image/avif">
-													<source srcset="img/index/schedule/avatar.webp" type="image/webp">
-													<img src="img/index/schedule/avatar.png" alt="" width="50" height="50" loading="lazy">
-												</picture>
+											<div class="application-popup__person">
+												<div class="application-popup__person--avatar">
+													<picture>
+														<source srcset="img/index/schedule/avatar.avif" type="image/avif">
+														<source srcset="img/index/schedule/avatar.webp" type="image/webp">
+														<img src="img/index/schedule/avatar.png" alt="" width="50" height="50" loading="lazy">
+													</picture>
+												</div>
+												<h5>Маша Тимошенко</h5>
+												<span>автор пространства Sarcum</span>
 											</div>
-											<h5>Маша Тимошенко</h5>
-											<span>автор пространства Sarcum</span>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-					<form method="post" class="application-popup__form">
-						<div class="application-popup__form--wrapper">
-							<label data-error-text="Please enter a valid name.">
-								<input type="text" name="your-name" placeholder="Имя" required>
-								<span>ФИО</span>
-							</label>
-							<label data-error-text="Please enter a valid email.">
-								<input type="email" name="email" placeholder="Электронная почта" required>
-								<span>Электронная почта</span>
-							</label>
-							<label data-error-text="Please enter a valid phone number.">
-								<input type="tel" name="phone" placeholder="Номер телефона" required>
-								<span>Номер телефона</span>
-							</label>
-							<button class="btn" type="submit" aria-label="Отправить">
-								<span>
-									<span aria-hidden="true">Отправить</span>
-									<span>Отправить</span>
-								</span>
-							</button>
-						</div>
-					</form>
-					<!-- <div class="application-popup__message">
-						<div class="application-popup__message--wrapper">
-							<h3 class="application-popup__message--title _successful">
-								<div class="application-popup__message--icon">
-									<svg width="8" height="7" viewBox="0 0 8 7">
-										<use xlink:href="img/sprites.svg#check"></use>
-									</svg>
-								</div>
-								Ваша оплата прошла успешно!
-							</h3>
-							<div class="application-popup__message--text">
-								<p>
-									Если у вас остались вопросы, вы может обратиться в нашу поддержку, написав на почту:
-									<a href="#">help@sacrumtalk.com</a>
-								</p>
+						<form method="post" class="application-popup__form">
+							<div class="application-popup__form--wrapper">
+								<label data-error-text="Please enter a valid name.">
+									<input type="text" name="your-name" placeholder="Имя" required>
+									<span>ФИО</span>
+								</label>
+								<label data-error-text="Please enter a valid email.">
+									<input type="email" name="email" placeholder="Электронная почта" required>
+									<span>Электронная почта</span>
+								</label>
+								<label data-error-text="Please enter a valid phone number.">
+									<input type="tel" name="phone" placeholder="Номер телефона" required>
+									<span>Номер телефона</span>
+								</label>
+								<button class="btn" type="submit" aria-label="Отправить">
+									<span>
+										<span aria-hidden="true">Отправить</span>
+										<span>Отправить</span>
+									</span>
+								</button>
 							</div>
-						</div>
-					</div> -->
+						</form>
+						<!-- <div class="application-popup__message">
+							<div class="application-popup__message--wrapper">
+								<h3 class="application-popup__message--title _successful">
+									<div class="application-popup__message--icon">
+										<svg width="8" height="7" viewBox="0 0 8 7">
+											<use xlink:href="img/sprites.svg#check"></use>
+										</svg>
+									</div>
+									Ваша оплата прошла успешно!
+								</h3>
+								<div class="application-popup__message--text">
+									<p>
+										Если у вас остались вопросы, вы может обратиться в нашу поддержку, написав на почту:
+										<a href="#">help@sacrumtalk.com</a>
+									</p>
+								</div>
+							</div>
+						</div> -->
+					</div>
 				</div>
 			</div>
 		</div>

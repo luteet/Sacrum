@@ -467,6 +467,10 @@
 			}
 		}
 
+		&._active:hover &--param {
+			color: var(--black-3);
+		}
+
 		&--switch {
 			position: relative;
 			flex: 0 0 33px;

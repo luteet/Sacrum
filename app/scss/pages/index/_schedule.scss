@@ -73,7 +73,7 @@
 				left: 0; top: 0;
 				transform: translate(0,13%);
 				@include _550 {
-					transform: translate(0,13%);
+					transform: translate(0,15%);
 				}
 				width: 100%; height: 100%;
 				object-fit: cover;
@@ -126,7 +126,7 @@
 		display: flex;
 		flex-direction: column;
 
-		padding-top: calc(var(--svh, 1vh) * 80); padding-bottom: calc(var(--svh, 1vh) * 20);
+		padding-top: calc(var(--svh, 1vh) * 35); padding-bottom: calc(var(--svh, 1vh) * 20);
 		@include _992 {
 			padding-top: 35%; padding-bottom: 100px;
 			padding-left: 5%; padding-right: 5%;
@@ -136,7 +136,7 @@
 	// .schedule__card
 
 	&__card {
-		max-width: 85%;
+		max-width: 70%;
 		margin-top: 60px;
 		@include _550 {
 			max-width: 320px;
@@ -200,7 +200,7 @@
 
 .folder-card {
 
-	transition: filter .1s ease;
+	min-width: 240px;
 
 	&._light & {
 		&__header {
@@ -303,7 +303,7 @@
 		background: var(--accent);
 		border-radius: 10px 0 10px 10px;
 
-		padding: 22px;
+		padding: 17px;
 		@include _550 {
 			padding: 30px;
 		}
@@ -320,13 +320,27 @@
 		h3 {
 			margin-top: 10px;
 			font-weight: 600;
-			font-size: 1.125rem;
+			font-size: 1rem;
+			line-height: 120%;
+			display: -webkit-box;
+			text-overflow: ellipsis;
+			overflow: hidden;
+			-webkit-line-clamp: 2;
+			-webkit-box-orient: vertical;
+			line-clamp: 2;
+			box-orient: vertical;
+			@include _550 {
+				font-size: 1.125rem;
+				line-height: 110%;
+				-webkit-line-clamp: 7;
+				line-clamp: 7;
+			}
 			
 			@include _768 {
 				font-size: 1.25rem;
 			}
 			
-			line-height: 110%;
+			
 			letter-spacing: -0.05em;
 		}
 	}
@@ -340,22 +354,27 @@
 	// .folder-card__footer
 
 	&__footer {
-		margin-top: 26px;
+		margin-top: 20px;
+		@include _550 {
+			margin-top: 26px;
+		}
 
 		display: grid;
+		/* text-align: center; */
 		grid-template-columns: 1fr 1fr;
 
 		> * {
-			align-self: center;
+			//align-self: center;
+			//justify-self: center;
 		}
 	}
 
 	// .folder-card__btn
 
 	&__btn {
-		justify-self: self-start;
-		margin-right: 10px;
-		&._light {
+		//justify-self: self-start;
+		//margin-right: 10px;
+		&._light span span {
 			color: var(--accent);
 		}
 	}
@@ -364,6 +383,7 @@
 
 	&__seats {
 		justify-self: center;
+		margin-top: 10px;
 		&::before {
 			content: '/';
 			margin-right: 5px;

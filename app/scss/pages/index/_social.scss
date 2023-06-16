@@ -7,8 +7,11 @@
 	z-index: auto;
 	position: relative; */
 	position: relative;
-	z-index: 1;
-	margin-top: calc(var(--svh,1vh) * -100);
+	z-index: 4;
+	@include _992 {
+		z-index: 1;
+		margin-top: calc(var(--svh,1vh) * -60); //padding-top: 0vh;
+	}
 	//transform: translate(0,100vh);
 	//transform: translate(0,-100%);
 	/* &__container {
@@ -21,7 +24,7 @@
 .sections-wrapper__container {
 	z-index: 1;
 }
-
+/* 
 @include _992 {
 	.faq {
 		opacity: 1;
@@ -38,7 +41,7 @@
 
 .sections-wrapper__container._active .faq {
 	opacity: 1;
-}
+} */
 
 
 
